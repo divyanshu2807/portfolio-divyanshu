@@ -1,30 +1,33 @@
 import React from 'react';
 import './Skills.css';
 
-// Correct official icons
-import { 
-  FaReact, 
-  FaNodeJs, 
-  FaHtml5, 
-  FaCss3Alt, 
-  FaJsSquare, 
-  FaGitAlt, 
-  FaJava
+// Font Awesome icons
+import {
+  FaReact,
+  FaNodeJs,
+  FaHtml5,
+  FaCss3Alt,
+  FaJsSquare,
+  FaGitAlt,
+  FaJava,
+  FaBug
 } from 'react-icons/fa';
 
-// ✅ Redux ka correct import yahan se aayega (SiRedux)
-import { 
-  SiMongodb, 
-  SiExpress, 
-  SiTypescript, 
-  SiNextdotjs, 
-  SiPostman, 
+// Official technology icons
+import {
+  SiMongodb,
+  SiExpress,
+  SiTypescript,
+  SiNextdotjs,
+  SiPostman,
   SiTailwindcss,
-  SiRedux
+  SiRedux,
+  SiDocker,
+  SiLinux,
+  SiJira
 } from 'react-icons/si';
 
 const Skills = () => {
-  // ✅ Har icon ko color property di hai
   const skillsData = [
     { name: "React.js", icon: <FaReact color="#61DBFB" /> },
     { name: "Next.js", icon: <SiNextdotjs color="#ffffff" /> },
@@ -40,14 +43,21 @@ const Skills = () => {
     { name: "CSS3", icon: <FaCss3Alt color="#1572B6" /> },
     { name: "Git", icon: <FaGitAlt color="#F05032" /> },
     { name: "Tailwind CSS", icon: <SiTailwindcss color="#38B2AC" /> },
+    { name: "Docker", icon: <SiDocker color="#2496ED" /> },
+    { name: "Linux", icon: <SiLinux color="#FCC624" /> },
+    { name: "Jira", icon: <SiJira color="#0052CC" /> },
+    { name: "Playwright", icon: <FaBug color="#2EAD33" /> },
   ];
 
   return (
     <section id="skills" className="skills-section">
       <div className="skills-container">
         <div className="skills-header">
-          <h2 className="section-title">Professional <span className="highlight">Skillset</span></h2>
+          <h2 className="section-title">
+            Professional <span className="highlight">Skillset</span>
+          </h2>
         </div>
+
         <div className="skills-grid">
           {skillsData.map((skill, index) => (
             <div className="skill-pill" key={index}>
