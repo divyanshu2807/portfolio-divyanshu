@@ -1,0 +1,372 @@
+/* src/components/Projects/Projects.css */
+
+.projects-section {
+  min-height: 100vh;
+  background: #0b1120;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 0 60px 0; /* ✅ FIX 2: Top padding thoda kam kiya */
+  position: relative;
+}
+
+.projects-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(2px 2px at 20px 30px, #eee, transparent);
+  background-size: 200px 200px;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.projects-container {
+  width: 95%;
+  max-width: 1400px;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+.projects-header {
+  text-align: center;
+  margin-bottom: 25px; /* ✅ Gap thoda kam kiya */
+}
+
+.section-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.highlight {
+  color: #a855f7;
+}
+
+.section-subtitle {
+  color: #94a3b8;
+  font-size: 1rem;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px; /* ✅ Spacing thoda kam kiya */
+  align-items: stretch;
+}
+
+.project-card-wrapper {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.projects-section.in-view .project-card-wrapper {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-card {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px 20px;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  border-color: #a855f7;
+  box-shadow: 0 15px 45px rgba(168, 85, 247, 0.15);
+}
+
+.project-image-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.project-image {
+  width: 70%;
+  max-width: 160px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.03);
+}
+
+.project-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.project-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.project-description {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 12px;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.project-tag {
+  background: rgba(168, 85, 247, 0.1);
+  color: #a855f7;
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+.project-actions {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  background: rgba(168, 85, 247, 0.15);
+  color: #a855f7;
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  justify-content: center;
+}
+
+.project-card:hover .action-btn {
+  background: #a855f7;
+  color: #ffffff;
+  border-color: #a855f7;
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
+}
+
+@media (max-width: 992px) {
+  .projects-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+}
+
+@media (max-width: 600px) {
+  .projects-grid { grid-template-columns: 1fr; gap: 20px; }
+  .section-title { font-size: 2rem; }
+}
+
+/* =========================================================
+   ✨ PROJECTS PREMIUM ANIMATION POLISH
+   Existing UI / Layout / Content untouched
+   ========================================================= */
+
+/* Header reveal */
+.projects-header {
+  animation: projectsHeaderReveal 0.8s ease-out both;
+}
+
+@keyframes projectsHeaderReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+    filter: blur(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+
+/* Purple heading glow */
+.projects-header .highlight {
+  animation: projectsHighlightGlow 3s ease-in-out 0.8s infinite;
+}
+
+@keyframes projectsHighlightGlow {
+  0%,
+  100% {
+    text-shadow: 0 0 0 rgba(168, 85, 247, 0);
+  }
+
+  50% {
+    text-shadow:
+      0 0 12px rgba(168, 85, 247, 0.45),
+      0 0 30px rgba(168, 85, 247, 0.18);
+  }
+}
+
+
+/* =========================================================
+   💜 PROJECT CARD REVEAL
+   Existing .in-view functionality preserved
+   ========================================================= */
+
+.projects-section.in-view .project-card-wrapper {
+  animation: projectCardReveal 0.8s ease-out both;
+}
+
+.projects-section.in-view .project-card-wrapper:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.projects-section.in-view .project-card-wrapper:nth-child(2) {
+  animation-delay: 0.25s;
+}
+
+.projects-section.in-view .project-card-wrapper:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes projectCardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(45px) scale(0.94);
+    filter: blur(3px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+
+/* =========================================================
+   💎 CARD PREMIUM HOVER
+   ========================================================= */
+
+.project-card {
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow:
+    0 18px 50px rgba(0, 0, 0, 0.45),
+    0 0 28px rgba(168, 85, 247, 0.12);
+}
+
+
+/* =========================================================
+   🖼️ PROJECT IMAGE
+   ========================================================= */
+
+.project-image {
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.06);
+  filter: brightness(1.08);
+}
+
+
+/* =========================================================
+   🏷️ TECHNOLOGY TAGS
+   ========================================================= */
+
+.project-tag {
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.project-tag:hover {
+  transform: translateY(-2px);
+  background: rgba(168, 85, 247, 0.18);
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.12);
+}
+
+
+/* =========================================================
+   🔗 ACTION BUTTONS
+   ========================================================= */
+
+.action-btn {
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.action-btn:hover {
+  transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   🌌 SUBTLE STAR MOVEMENT
+   ========================================================= */
+
+.projects-section::before {
+  animation: projectStarsMove 22s linear infinite;
+}
+
+@keyframes projectStarsMove {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 200px 200px;
+  }
+}
+
+
+/* =========================================================
+   ♿ REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .projects-header,
+  .projects-header .highlight,
+  .project-card-wrapper,
+  .projects-section::before {
+    animation: none;
+  }
+}
+

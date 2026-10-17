@@ -1,0 +1,312 @@
+/* src/components/About/About.css */
+.about-section {
+  min-height: 100vh;
+  /* Deep Neo Blue theme */
+  background: #0b1120; 
+  display: flex;
+  align-items: center;
+  padding: 100px 0;
+  color: #94a3b8;
+}
+
+.about-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* === LEFT SIDE === */
+.about-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 5px;
+}
+
+.highlight {
+  color: #00d4ff; /* Bright Neo Blue highlight */
+}
+
+.sub-title {
+  font-size: 1.3rem;
+  color: #00d4ff;
+  font-weight: 400;
+  margin-bottom: 25px;
+  opacity: 0.8;
+}
+
+.about-desc {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #94a3b8;
+  margin-bottom: 20px;
+}
+
+/* === RIGHT SIDE (Neo Blue Glass Box) === */
+.about-right {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(8px);
+  padding: 40px 35px;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 212, 255, 0.2); /* Neo Blue border glow */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.skills-heading {
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin-bottom: 25px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+.skill-box {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.skill-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.skill-row:last-child {
+  border-bottom: none;
+}
+
+.skill-cat {
+  color: #00d4ff; /* Neo Blue */
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.skill-tech {
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  text-align: right;
+}
+
+/* === MOBILE RESPONSIVE === */
+@media (max-width: 992px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .about-right {
+    padding: 30px 20px;
+  }
+
+  .skill-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+  
+  .skill-tech {
+    text-align: left;
+  }
+
+  .section-title {
+    font-size: 2.8rem;
+  }
+}
+
+/* =========================================================
+   ✨ ABOUT SECTION ANIMATION POLISH
+   Existing UI / Layout / Content untouched
+   ========================================================= */
+
+/* Left content entrance */
+.about-left {
+  animation: aboutLeftReveal 0.9s ease-out both;
+}
+
+@keyframes aboutLeftReveal {
+  from {
+    opacity: 0;
+    transform: translateX(-35px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Section title */
+.section-title {
+  animation: aboutTitleReveal 0.8s ease-out 0.15s both;
+}
+
+@keyframes aboutTitleReveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* Highlight text subtle glow */
+.highlight {
+  animation: highlightGlow 3s ease-in-out 1s infinite;
+}
+
+@keyframes highlightGlow {
+  0%,
+  100% {
+    text-shadow: 0 0 0 rgba(0, 212, 255, 0);
+  }
+
+  50% {
+    text-shadow:
+      0 0 10px rgba(0, 212, 255, 0.35),
+      0 0 25px rgba(0, 212, 255, 0.15);
+  }
+}
+
+/* Subtitle */
+.sub-title {
+  animation: aboutFadeUp 0.8s ease-out 0.3s both;
+}
+
+/* Description */
+.about-desc {
+  animation: aboutFadeUp 0.8s ease-out 0.45s both;
+}
+
+@keyframes aboutFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   💎 RIGHT GLASS BOX
+   ========================================================= */
+
+.about-right {
+  animation: aboutBoxReveal 1s ease-out 0.25s both;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
+}
+
+@keyframes aboutBoxReveal {
+  from {
+    opacity: 0;
+    transform: translateX(35px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+.about-right:hover {
+  transform: translateY(-5px);
+  border-color: rgba(0, 212, 255, 0.4);
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.55),
+    0 0 25px rgba(0, 212, 255, 0.08);
+}
+
+
+/* =========================================================
+   📊 SKILLS ROW STAGGER ANIMATION
+   ========================================================= */
+
+.skill-row {
+  transition:
+    transform 0.3s ease,
+    padding-left 0.3s ease,
+    border-color 0.3s ease;
+  animation: skillRowReveal 0.6s ease-out both;
+}
+
+.skill-row:nth-child(1) {
+  animation-delay: 0.45s;
+}
+
+.skill-row:nth-child(2) {
+  animation-delay: 0.55s;
+}
+
+.skill-row:nth-child(3) {
+  animation-delay: 0.65s;
+}
+
+.skill-row:nth-child(4) {
+  animation-delay: 0.75s;
+}
+
+.skill-row:nth-child(5) {
+  animation-delay: 0.85s;
+}
+
+@keyframes skillRowReveal {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.skill-row:hover {
+  transform: translateX(6px);
+  padding-left: 8px;
+  border-color: rgba(0, 212, 255, 0.18);
+}
+
+
+/* =========================================================
+   ♿ REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .about-left,
+  .section-title,
+  .highlight,
+  .sub-title,
+  .about-desc,
+  .about-right,
+  .skill-row {
+    animation: none;
+  }
+}

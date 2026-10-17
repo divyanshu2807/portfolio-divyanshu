@@ -1,0 +1,237 @@
+/* src/Navbar.css */
+.navbar-custom {
+  /* ✅ FIX: Hamesha Dark Blue rahega, transparent nahi */
+  background-color: #0b1120 !important;
+  padding: 15px 0;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  /* Ek subtle border bhi add kar diya taaki aur premium lage */
+  border-bottom: 1px solid rgba(168, 85, 247, 0.15);
+}
+
+/* ✅ Jab scroll karo, toh glow aur shadow badh jayegi, lekin background wahi rahega */
+.navbar-custom.navbar-scrolled {
+  background-color: #0b1120 !important;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid rgba(168, 85, 247, 0.3); /* Border glow badh gaya */
+}
+
+.brand-logo {
+  font-size: 2rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, #a855f7, #7c3aed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  gap: 15px;
+}
+
+.nav-links .nav-link {
+  color: #94a3b8 !important;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.nav-links .nav-link:hover {
+  color: #a855f7 !important;
+  background: rgba(168, 85, 247, 0.08);
+  transform: translateY(-2px);
+}
+
+.nav-icon {
+  font-size: 1.1rem;
+  color: #a855f7;
+}
+
+.nav-btn-wrapper {
+  padding: 0 !important;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+.nav-btn {
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+  color: white;
+  border: none;
+  padding: 8px 22px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);
+}
+
+.nav-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(168, 85, 247, 0.5);
+}
+
+.custom-toggler {
+  border: none !important;
+  outline: none !important;
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+@media (max-width: 991px) {
+  .nav-links {
+    padding: 20px 0;
+    gap: 10px;
+  }
+  /* Mobile par bhi background dark hi rahega */
+  .navbar-custom.navbar-scrolled {
+    background-color: #0b1120 !important;
+  }
+  .nav-btn-wrapper {
+    margin-left: 0;
+    margin-top: 10px;
+    width: 100%;
+  }
+  .nav-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* =========================================================
+   ✨ NAVBAR ANIMATION POLISH
+   Existing UI / Functionality untouched
+   ========================================================= */
+
+/* Navbar initial entrance */
+.navbar-custom {
+  animation: navbarReveal 0.7s ease-out both;
+}
+
+@keyframes navbarReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   💜 LOGO PREMIUM GLOW
+   ========================================================= */
+
+.brand-logo {
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
+}
+
+.brand-logo:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.45));
+}
+
+
+/* =========================================================
+   🔗 NAV LINKS
+   ========================================================= */
+
+.nav-links .nav-link {
+  transition:
+    color 0.3s ease,
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+/* Slight icon movement */
+.nav-links .nav-link:hover .nav-icon {
+  transform: scale(1.15) rotate(-3deg);
+}
+
+.nav-icon {
+  transition: transform 0.3s ease;
+}
+
+
+/* =========================================================
+   🔘 CONTACT BUTTON
+   ========================================================= */
+
+.nav-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.22),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+}
+
+.nav-btn:hover::before {
+  left: 130%;
+}
+
+
+/* =========================================================
+   📱 MOBILE TOGGLER
+   ========================================================= */
+
+.custom-toggler {
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.custom-toggler:hover {
+  transform: scale(1.05);
+  background: rgba(168, 85, 247, 0.12);
+}
+
+
+/* =========================================================
+   ✨ SCROLLED NAVBAR
+   ========================================================= */
+
+.navbar-custom.navbar-scrolled {
+  transition:
+    background-color 0.4s ease,
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
+}
+
+
+/* =========================================================
+   ♿ REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar-custom {
+    animation: none;
+  }
+}

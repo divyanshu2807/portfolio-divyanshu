@@ -1,0 +1,474 @@
+/* src/components/Resume/Resume.css */
+.resume-page {
+  min-height: 100vh;
+  background: #0b1120;
+  display: flex;
+  justify-content: center;
+  padding: 100px 20px 60px;
+}
+
+.resume-container {
+  max-width: 1100px;
+  width: 100%;
+}
+
+.resume-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.resume-title {
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.highlight {
+  color: #a855f7;
+}
+
+.resume-subtitle {
+  color: #94a3b8;
+  font-size: 1.1rem;
+}
+
+.resume-intro-card {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 24px;
+  padding: 40px;
+  margin-bottom: 50px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.intro-text h3 {
+  font-size: 2rem;
+  color: #ffffff;
+  margin-bottom: 5px;
+}
+
+.intro-role {
+  color: #a855f7;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.intro-desc {
+  color: #94a3b8;
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto 30px;
+}
+
+.intro-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.resume-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 30px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.primary-btn {
+  background: #a855f7;
+  color: #ffffff;
+  border: 1px solid #a855f7;
+}
+
+.primary-btn:hover {
+  background: #8b35e0;
+  transform: translateY(-2px);
+}
+
+.outline-btn {
+  background: transparent;
+  color: #a855f7;
+  border: 1px solid #a855f7;
+}
+
+.outline-btn:hover {
+  background: rgba(168, 85, 247, 0.1);
+  transform: translateY(-2px);
+}
+
+/* ✅ FIX: Puri width occupy karne ke liye 1 column kar diya */
+.resume-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+.resume-col {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.resume-card {
+  width: 100%;
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(168, 85, 247, 0.15);
+  border-radius: 20px;
+  padding: 30px;
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.4rem;
+  color: #ffffff;
+  margin-bottom: 25px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 15px;
+}
+
+.card-icon {
+  color: #a855f7;
+}
+
+.timeline-item {
+  margin-bottom: 25px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-date {
+  display: inline-block;
+  background: rgba(168, 85, 247, 0.15);
+  color: #a855f7;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  margin-bottom: 8px;
+}
+
+.timeline-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 5px;
+}
+
+.timeline-org {
+  display: block;
+  color: #94a3b8;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.timeline-desc {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-tag {
+  background: rgba(168, 85, 247, 0.1);
+  color: #a855f7;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid rgba(168, 85, 247, 0.1);
+}
+
+.cert-item {
+  display: flex;
+  justify-content: space-between;
+  color: #94a3b8;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cert-item:last-child {
+  border-bottom: none;
+}
+
+.cert-name {
+  color: #e2e8f0;
+}
+
+.cert-org {
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+  .resume-title {
+    font-size: 2.5rem;
+  }
+  .resume-intro-card {
+    padding: 25px;
+  }
+  .intro-actions {
+    flex-direction: column;
+  }
+  .resume-btn {
+    justify-content: center;
+  }
+}
+/* =========================================================
+   ✨ RESUME SECTION ANIMATION POLISH
+   Existing UI / Layout / Content untouched
+   ========================================================= */
+
+/* Resume heading entrance */
+.resume-header {
+  animation: resumeHeaderReveal 0.9s ease-out both;
+}
+
+@keyframes resumeHeaderReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-25px);
+    filter: blur(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+
+/* Purple highlight glow */
+.resume-header .highlight {
+  animation: resumeHighlightGlow 3s ease-in-out 1s infinite;
+}
+
+@keyframes resumeHighlightGlow {
+  0%,
+  100% {
+    text-shadow: 0 0 0 rgba(168, 85, 247, 0);
+  }
+
+  50% {
+    text-shadow:
+      0 0 12px rgba(168, 85, 247, 0.45),
+      0 0 30px rgba(168, 85, 247, 0.18);
+  }
+}
+
+
+/* =========================================================
+   💎 INTRO CARD
+   ========================================================= */
+
+.resume-intro-card {
+  animation: introCardReveal 0.9s ease-out 0.2s both;
+
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
+}
+
+@keyframes introCardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.resume-intro-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(168, 85, 247, 0.4);
+  box-shadow:
+    0 15px 45px rgba(0, 0, 0, 0.45),
+    0 0 25px rgba(168, 85, 247, 0.08);
+}
+
+
+/* =========================================================
+   📝 INTRO TEXT
+   ========================================================= */
+
+.intro-text h3 {
+  animation: resumeFadeUp 0.7s ease-out 0.35s both;
+}
+
+.intro-role {
+  animation: resumeFadeUp 0.7s ease-out 0.45s both;
+}
+
+.intro-desc {
+  animation: resumeFadeUp 0.7s ease-out 0.55s both;
+}
+
+@keyframes resumeFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   🔘 RESUME BUTTONS
+   ========================================================= */
+
+.resume-btn {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+.resume-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 22px rgba(168, 85, 247, 0.15);
+}
+
+.resume-btn:active {
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   📄 RESUME CARDS
+   ========================================================= */
+
+.resume-card {
+  animation: resumeCardReveal 0.8s ease-out both;
+
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.resume-card:nth-child(1) {
+  animation-delay: 0.25s;
+}
+
+.resume-card:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.resume-col:nth-child(2) .resume-card:nth-child(1) {
+  animation-delay: 0.55s;
+}
+
+.resume-col:nth-child(2) .resume-card:nth-child(2) {
+  animation-delay: 0.7s;
+}
+
+@keyframes resumeCardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.resume-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(168, 85, 247, 0.3);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+}
+
+
+/* =========================================================
+   🏷️ SKILL TAGS
+   ========================================================= */
+
+.skill-tag {
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.skill-tag:hover {
+  transform: translateY(-3px);
+  background: rgba(168, 85, 247, 0.17);
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.12);
+}
+
+
+/* =========================================================
+   🎓 TIMELINE DATE
+   ========================================================= */
+
+.timeline-date {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.timeline-date:hover {
+  transform: translateX(4px);
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.12);
+}
+
+
+/* =========================================================
+   🏆 CERTIFICATIONS
+   ========================================================= */
+
+.cert-item {
+  transition:
+    transform 0.25s ease,
+    padding-left 0.25s ease;
+}
+
+.cert-item:hover {
+  transform: translateX(5px);
+  padding-left: 5px;
+}
+
+
+/* =========================================================
+   ♿ REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .resume-header,
+  .resume-header .highlight,
+  .resume-intro-card,
+  .intro-text h3,
+  .intro-role,
+  .intro-desc,
+  .resume-card {
+    animation: none;
+  }
+}
